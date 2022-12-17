@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+// @RequestMapping("/people")
 public class PersonController {
     @Autowired
     private PersonService personService;
@@ -16,7 +17,7 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @RequestMapping(value = "/people", method = RequestMethod.POST)
+    @RequestMapping(value = "/people/post", method = RequestMethod.POST)
     public ResponseEntity<Person> createPerson(@RequestBody Person p) {
         return new ResponseEntity<>(personService.createPerson(p), HttpStatus.CREATED);
     }

@@ -21,18 +21,18 @@ public class PersonService {
     }
 
     public Person getPerson(int id) {
-        return repository.findOne(id);
+        return repository.findById(id).get();
     }
 
     public Person updatePerson(int id, Person newPersonData) {
-        Person ogPerson = repository.findOne(id);
+        Person ogPerson = repository.findById(id).get();
         ogPerson.setFirstName(newPersonData.getFirstName());
         ogPerson.setLastName(newPersonData.getLastName());
         return repository.save(ogPerson);
     }
 
     public Boolean deletePerson(int id) {
-        repository.delete(id);
+        repository.deleteById(id);
         return true;
     }
 
